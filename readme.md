@@ -5,14 +5,16 @@ Using an optimized custom CUDA kernel, on a P100, you can compute tanimoto betwe
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. 
 
 ### Prerequisites
 
 Only dependencies are numpy, rdkit, gcc, and CUDA >= 10.1.
 
 `pip install {numpy, pandas}`
+
 `conda install -c rdkit rdkit`
+
 For gcc / CUDA go to the respective websites online.
 
 ### Usage
@@ -51,6 +53,8 @@ python convert_to_binary.py -i sanitized_queries.txt -o queries.bin
 nvcc fastSearch_CUDA.cu -o fastSearch
 
 fastSearch database.bin queries.bin search_results.txt 1024
+```
+
 
 ## License
 
