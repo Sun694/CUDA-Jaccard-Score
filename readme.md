@@ -1,5 +1,5 @@
 # FastJacc
- A fast molecular database search function that offers over a 3 digit times speedup over RDKit for bulk tanimoto.
+ A fast molecular database search function that offers over a 100x speedup over RDKit for bulk tanimoto.
 
 Using an optimized custom CUDA kernel, on a P100, you can compute tanimoto between 800,000 molecules in less than 4ms.
 
