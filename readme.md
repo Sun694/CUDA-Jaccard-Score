@@ -1,5 +1,5 @@
 # FastJacc
- A fast molecular database search function that offers over a 100x speedup over RDKit for bulk tanimoto.
+ A fast molecular database search function that offers over a 100x times speedup over RDKit for bulk tanimoto.
 
 Using an optimized custom CUDA kernel, on a P100, you can compute tanimoto between 800,000 molecules in less than 4ms.
 
@@ -38,7 +38,9 @@ Convert the given sanitized input into a binary format for fast processing.
 fastSearch_CUDA.cu:
 
 ```
-usage: fastSearch_CUDA DATABASE_DIRECTORY QUERY_DIRECTORY OUTPUT_DIRECTORY BLOCK_SIZE
+usage: fastSearch_CUDA DATABASE_DIRECTORY QUERY_DIRECTORY OUTPUT_DIRECTORY BLOCK_SIZE TOP_K
+
+Query the database with the given query vectors, gather the top k similarities, then output them in human-readable format in output directory.
 
 ```
 
@@ -52,9 +54,8 @@ python convert_to_binary.py -i sanitized_queries.txt -o queries.bin
 
 nvcc fastSearch_CUDA.cu -o fastSearch
 
-fastSearch database.bin queries.bin search_results.txt 1024
+fastSearch database.bin queries.bin search_results.txt 1024 30
 ```
-
 
 ## License
 
